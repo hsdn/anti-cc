@@ -1,35 +1,33 @@
-module.exports = function antiCC(dispatch) {
-	const command = require("command")(dispatch);
-
+module.exports = function antiCC(mod) {
 	let enabled = false;
 
-	command.add("cc", () => {
+	mod.command.add("cc", () => {
 		enabled = !enabled;
-		command.message("Anti-CC enabled: " + enabled);
+		mod.command.message("Anti-CC enabled: " + enabled);
 	});
 
 	let gameId = 0,
 	location = null,
 	locRealTime = 0;
 
-	dispatch.hook('C_PLAYER_LOCATION', 2, event => {
+	mod.hook('C_PLAYER_LOCATION', 5, event => {
 		location = event
 		locRealTime = Date.now()
 	});
 
-	dispatch.hook('S_LOGIN', 10, event => {
+	mod.hook('S_LOGIN', 14, event => {
 		gameId = event.gameId;
 	});
 
-	dispatch.hook('S_EACH_SKILL_RESULT', 12, {order: -10000000}, event => {
+	mod.hook('S_EACH_SKILL_RESULT', 14, {order: -10000000}, event => {
 		if (!enabled) return;
 
-		if (event.target.equals(gameId) && event.reaction.enable) {
-			dispatch.toServer('C_PLAYER_LOCATION', 2, Object.assign({}, location, {
+		if (event.target === gameId && event.reaction.enable) {
+			mod.toServer('C_PLAYER_LOCATION', 5, Object.assign({}, location, {
 				type: 2,
 				time: location.time - locRealTime + Date.now() - 50
 			}));
-			dispatch.toServer('C_PLAYER_LOCATION', 2, Object.assign(location, {
+			mod.toServer('C_PLAYER_LOCATION', 5, Object.assign(location, {
 				type: 7,
 				time: location.time - locRealTime + Date.now() + 50
 			}));

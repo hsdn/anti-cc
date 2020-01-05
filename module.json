@@ -1,4 +1,8 @@
 {
-	"disableAutoUpdate": false,
-	"servers": ["https://raw.githubusercontent.com/busann/anti-cc/master/"]
+    "disableAutoUpdate": false,
+    "name": "anti-cc",
+    "version": "05.01.2020",
+    "author": "Milice | Busann, forked by Xertyn",
+    "description": "Prevents you from getting knocked down / knocked up in PVP + PVE",
+    "servers": ["https://raw.githubusercontent.com/Xertyn/anti-cc/master/"]
 }
