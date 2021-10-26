@@ -1,11 +1,12 @@
 {
     "files": {
-        "index.js": "3aaa9ff5db5c6ba45abecd28e53b3173424427d2b0e637bc307dbeed78374727",
-        "module.json": "d9f856b91991e2e4b2155c31f436c752b919ac435d716b1c7b052cb95ca85b49"
+        "README.md": "382fd022d75a4b8eb4e03ec8ec315e9ad74c155a9ada4522badb3d3db43939c9",
+        "index.js": "135669cb659b6727d8f4913d2208a94b0120fe52f20df8c8c92d672829f658c4",
+        "module.json": "6e040b828f1bef94f1c51f593a58b5e006612296147a268c3c9eac95baae7f26",
+        "settings_migrator.js": "706f0efea16c871777061a49f02ec09557f73b7601d871b0d0698ddda93f0b8c"
     },
     "defs": {
         "C_PLAYER_LOCATION": 5,
-        "S_EACH_SKILL_RESULT": 14,
-        "S_LOGIN": 14
+        "S_EACH_SKILL_RESULT": 15
     }
 }
