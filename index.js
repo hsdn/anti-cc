@@ -19,7 +19,7 @@ module.exports = function antiCC(mod) {
 		locationTime = Date.now();
 	});
 
-	mod.hook("S_EACH_SKILL_RESULT", 15, { "order": -Infinity }, event => {
+	mod.hook("S_EACH_SKILL_RESULT", mod.majorPatchVersion >= 110 ? 15 : 14, { "order": -Infinity }, event => {
 		if (!mod.settings.enabled) return;
 
 		if (mod.game.me.is(event.target) && event.reaction.enable) {
